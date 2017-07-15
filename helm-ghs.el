@@ -62,19 +62,17 @@
       (reverse repos))))
 
 ;;;###autoload
-(defun helm-ghs ()
-  "Interactively call ghs and show by helm."
-  (interactive)
-  (let ((repo))
-    (setq repo (read-string ":"))
-    (let* ((repo (helm-comp-read "ghs-list: "
-                                (helm-ghs--list-candidates repo)
-                                :name "ghs list"
-                                :must-match t))
-           (username/repo (car (split-string repo " "))))
-      (async-shell-command (concat helm-ghq-command-ghq " "
-                                   helm-ghs-command-ghq-arg-list " "
-                                   username/repo)))))
+(defun helm-ghs (query)
+  "Interactively call ghs and show repos matching QUERY using helm."
+  (interactive (list (read-string "Query: ")))
+  (let* ((repo (helm-comp-read "ghs-list: "
+                               (helm-ghs--list-candidates query)
+                               :name "ghs list"
+                               :must-match t))
+         (username/repo (car (split-string repo " "))))
+    (async-shell-command (concat helm-ghq-command-ghq " "
+                                 helm-ghs-command-ghq-arg-list " "
+                                 username/repo))))
 
 (provide 'helm-ghs)
 ;;; helm-ghs.el ends here
