@@ -3,7 +3,7 @@
 ;; Copyright (C) 2017 by iory
 
 ;; Author: iory <ab.ioryz@gmail.com>
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; URL: https://github.com/iory/emacs-helm-ghs
 ;; Package-Requires: ((emacs "24") (helm "2.2.0"))
 
