@@ -52,7 +52,7 @@
   "*Listup ghs list. args of ARGS is query."
   (with-temp-buffer
     (unless (zerop (apply #'call-process
-                          helm-ghs-command-ghs nil t nil (list args)))
+                          helm-ghs-command-ghs nil t nil args))
       (error "Failed: Can't get ghs list candidates"))
     (let ((repos))
       (goto-char (point-min))
@@ -66,7 +66,7 @@
   "Interactively call ghs and show repos matching QUERY using helm."
   (interactive (list (read-string "Query: ")))
   (let* ((repo (helm-comp-read "ghs-list: "
-                               (helm-ghs--list-candidates query)
+                               (helm-ghs--list-candidates (split-string query " "))
                                :name "ghs list"
                                :must-match t))
          (username/repo (car (split-string repo " "))))
