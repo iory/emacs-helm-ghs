@@ -11,3 +11,7 @@ Make sure to place helm-ghs.el somewhere in the load-path and add the following 
 ```
 (require 'helm-ghs)
 ```
+
+# License
+
+Released under the terms of [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) or (at your option) any later version. See [LICENSE.txt](https://github.com/iory/emacs-helm-ghs/blob/master/LICENSE.txt).
